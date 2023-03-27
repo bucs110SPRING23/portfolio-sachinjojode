@@ -21,3 +21,6 @@ def main():
     print(threenp1range(20))
     
 main()
+
+def graph_coordinates(threenplus1_iters_dict):
+    print(1)
