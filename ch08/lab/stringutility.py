@@ -25,8 +25,11 @@ class StringUtility:
             return self.string[0:2] + self.string[-2:]
         
     def fixStart(self):
-        first = self.string[0]
-        return first + self.string[1:].replace(first, "*")
+        if len(self.string) >= 1:
+            first = self.string[0]
+            return first + self.string[1:].replace(first, "*")
+        else:
+            return ""
     
     def asciiSum(self):
         sum = 0
@@ -38,24 +41,19 @@ class StringUtility:
         in_str = self.string
         output_str = ""
         str_len = len(in_str)
-
+        
         for char in in_str:
             if not char.isalpha():
                 output_str += char
-
+                continue
+            
             is_upper = char.isupper()
             char = char.lower()
-
+            
             s = (ord(char) - 97 + str_len) % 26 + 97
             s_char = chr(s)
-
+            
             if is_upper:
                 s_char = s_char.upper()
-
             output_str += s_char
-
         return output_str
-    
-from stringutility import StringUtility
-vowel = StringUtility("intereeeesting")
-print(vowel.vowels())
