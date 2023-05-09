@@ -45,7 +45,7 @@ class StringUtility:
         for char in in_str:
             if not char.isalpha():
                 output_str += char
-                continue
+                continue  
             
             is_upper = char.isupper()
             char = char.lower()
